@@ -1,0 +1,278 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Petal &amp; Twine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<!--APP-START-->
+<header class="topbar">
+  <a class="brand" href="#" data-nav="home" aria-label="Petal and Twine, go to home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="11" r="6" fill="var(--rose)"/><circle cx="10" cy="15" r="5" fill="var(--rose)" opacity=".7"/><circle cx="22" cy="15" r="5" fill="var(--rose)" opacity=".7"/><path d="M16 17 L16 30 M16 24 Q11 21 9 23 M16 26 Q21 23 23 25" stroke="var(--stem)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    <span><strong>Petal &amp; Twine</strong><small>Florist · Model Town, Jalandhar</small></span>
+  </a>
+  <nav class="sitenav" aria-label="Site">
+    <button type="button" data-nav="home">Home</button>
+    <button type="button" data-nav="build">Shop</button>
+    <button type="button" data-nav="reviews">Reviews</button>
+    <button type="button" data-nav="about">About</button>
+  </nav>
+  <button class="cart-btn" type="button" data-go="cart" aria-label="Open cart">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.4 11.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 8Z M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span>Cart</span><span class="badge" id="cart-count">0</span>
+  </button>
+</header>
+<div class="order-progress" id="order-progress" hidden>
+  <ol class="progress" aria-label="Order progress">
+    <li><button type="button" data-nav="build">Build</button></li>
+    <li><button type="button" data-nav="cart">Cart</button></li>
+    <li><button type="button" data-nav="checkout">Checkout</button></li>
+    <li><button type="button" data-nav="done">Confirmed</button></li>
+  </ol>
+</div>
+
+<main class="wrap">
+  <!-- ============ HOME ============ -->
+  <section id="view-home" class="view home" aria-labelledby="home-title">
+    <div class="hero">
+      <p class="eyebrow">Petal &amp; Twine · Jalandhar</p>
+      <h1 id="home-title">Bouquets built stem by stem, delivered same day.</h1>
+      <p class="lede">Choose the flowers, the colours and the wrap. We cut everything fresh the morning of delivery.</p>
+      <div class="hero-actions">
+        <button type="button" class="btn primary" data-nav="build">Start building</button>
+        <button type="button" class="btn ghost" data-nav="reviews">Read reviews</button>
+      </div>
+    </div>
+    <div class="home-stage" id="home-stage"></div>
+    <div>
+      <h2>Pick a flower to start with</h2>
+      <div class="home-types" id="home-types"></div>
+    </div>
+    <div class="home-reviews">
+      <h2>Loved by Jalandhar</h2>
+      <div class="home-review-grid" id="home-review-grid"></div>
+      <button type="button" class="link-btn" data-nav="reviews">See all reviews</button>
+    </div>
+  </section>
+
+  <!-- ============ BUILD ============ -->
+  <section id="view-build" class="view build" hidden aria-labelledby="build-title">
+    <div class="steps">
+      <div class="intro">
+        <p class="eyebrow">Custom bouquet</p>
+        <h1 id="build-title">Build your bouquet, stem by stem.</h1>
+        <p class="lede">Choose the flowers, colours, wrap and extras. Your preview updates as you go.</p>
+      </div>
+
+      <fieldset class="step">
+        <legend><span class="num">1</span>Bouquet type</legend>
+        <div class="type-grid" id="opt-type" role="radiogroup" aria-label="Bouquet type"></div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="num">2</span>Flower colours <small id="color-hint">Pick up to 3</small></legend>
+        <div class="swatches" id="opt-colors"></div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="num">3</span>Wrapping</legend>
+        <div class="wrap-grid" id="opt-wrap" role="radiogroup" aria-label="Wrapping"></div>
+        <div class="ribbon-row">
+          <span class="label">Ribbon</span>
+          <div class="ribbons" id="opt-ribbon" role="radiogroup" aria-label="Ribbon colour"></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="num">4</span>Add-ons <small>Optional</small></legend>
+        <div class="addon-grid" id="opt-addons"></div>
+        <div class="card-msg" id="card-msg-wrap" hidden>
+          <label for="card-msg">Message for the card</label>
+          <textarea id="card-msg" maxlength="160" rows="3" placeholder="Happy anniversary, Simran. Here's to many more."></textarea>
+          <span class="counter" id="card-count">0 / 160</span>
+        </div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="num">5</span>Quantity</legend>
+        <div class="qty-row">
+          <div class="stepper" role="group" aria-label="Number of bouquets">
+            <button type="button" id="qty-dec" aria-label="Fewer bouquets">−</button>
+            <output id="qty-val" aria-live="polite">1</output>
+            <button type="button" id="qty-inc" aria-label="More bouquets">+</button>
+          </div>
+          <p class="muted">Ordering for an event? Up to 20 identical bouquets per order.</p>
+        </div>
+      </fieldset>
+    </div>
+
+    <aside class="panel" aria-label="Your bouquet">
+      <div class="stage" id="stage"></div>
+      <p class="stage-caption" id="stage-caption"></p>
+      <div class="chips" id="addon-chips"></div>
+      <dl class="breakdown" id="breakdown"></dl>
+      <button type="button" class="btn primary block" id="add-btn">Add to cart</button>
+      <p class="fine">Cut fresh the morning of delivery. Free delivery in Jalandhar over ₹1,499.</p>
+    </aside>
+
+    <div class="mobile-bar">
+      <div><span class="muted">Total</span><strong id="mobile-total">₹0</strong></div>
+      <button type="button" class="btn primary" id="add-btn-mobile">Add to cart</button>
+    </div>
+  </section>
+
+  <!-- ============ CART ============ -->
+  <section id="view-cart" class="view two-col" hidden aria-labelledby="cart-title">
+    <div>
+      <p class="eyebrow">Step 2 of 4</p>
+      <h1 id="cart-title">Your cart</h1>
+      <ul class="cart-list" id="cart-list"></ul>
+      <div class="empty" id="cart-empty" hidden>
+        <p>Your cart is empty.</p>
+        <button type="button" class="btn ghost" data-go="build">Build a bouquet</button>
+      </div>
+      <button type="button" class="link-btn" data-go="build" id="add-another">+ Build another bouquet</button>
+    </div>
+    <aside class="panel summary" id="cart-summary">
+      <h2>Order summary</h2>
+      <form class="coupon" id="coupon-form">
+        <label for="coupon">Promo code</label>
+        <div class="coupon-row">
+          <input id="coupon" autocomplete="off" placeholder="BLOOM10">
+          <button class="btn ghost" type="submit">Apply</button>
+        </div>
+        <p class="field-msg" id="coupon-msg"></p>
+      </form>
+      <dl class="breakdown" id="cart-totals"></dl>
+      <button type="button" class="btn primary block" id="to-checkout">Continue to checkout</button>
+    </aside>
+  </section>
+
+  <!-- ============ CHECKOUT ============ -->
+  <section id="view-checkout" class="view two-col" hidden aria-labelledby="checkout-title">
+    <form id="checkout-form" novalidate>
+      <p class="eyebrow">Step 3 of 4</p>
+      <h1 id="checkout-title">Delivery details</h1>
+
+      <fieldset class="form-block">
+        <legend>Who's receiving it?</legend>
+        <div class="grid-2">
+          <div class="field"><label for="r-name">Recipient name</label><input id="r-name" name="rname" autocomplete="off" required><span class="err"></span></div>
+          <div class="field"><label for="r-phone">Recipient phone</label><input id="r-phone" name="rphone" inputmode="numeric" maxlength="10" placeholder="98xxxxxxxx" required><span class="err"></span></div>
+        </div>
+        <div class="field"><label for="r-addr">Delivery address</label><textarea id="r-addr" name="addr" rows="2" placeholder="House no., street, area" required></textarea><span class="err"></span></div>
+        <div class="grid-2">
+          <div class="field"><label for="r-city">City</label><input id="r-city" name="city" value="Jalandhar" required><span class="err"></span></div>
+          <div class="field"><label for="r-pin">PIN code</label><input id="r-pin" name="pin" inputmode="numeric" maxlength="6" placeholder="144001" required><span class="err"></span></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-block">
+        <legend>When?</legend>
+        <div class="field"><label for="d-date">Delivery date</label><input type="date" id="d-date" name="date" required><span class="err"></span></div>
+        <div class="slots" id="slots" role="radiogroup" aria-label="Time slot"></div>
+      </fieldset>
+
+      <fieldset class="form-block">
+        <legend>Your details</legend>
+        <div class="grid-2">
+          <div class="field"><label for="s-name">Your name</label><input id="s-name" name="sname" autocomplete="name" required><span class="err"></span></div>
+          <div class="field"><label for="s-email">Email for updates</label><input type="email" id="s-email" name="email" autocomplete="email" required><span class="err"></span></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-block">
+        <legend>Payment</legend>
+        <div class="pay-grid">
+          <label class="pay"><input type="radio" name="pay" value="UPI on delivery" checked><span><strong>UPI on delivery</strong><small>Scan the rider's QR</small></span></label>
+          <label class="pay"><input type="radio" name="pay" value="Card on delivery"><span><strong>Card on delivery</strong><small>Rider carries a card machine</small></span></label>
+          <label class="pay"><input type="radio" name="pay" value="Cash on delivery"><span><strong>Cash on delivery</strong><small>Exact change helps</small></span></label>
+        </div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="button" class="btn ghost" data-go="cart">Back to cart</button>
+        <button type="submit" class="btn primary" id="place-btn">Place order</button>
+      </div>
+    </form>
+    <aside class="panel summary">
+      <h2>Order summary</h2>
+      <ul class="mini-list" id="checkout-items"></ul>
+      <dl class="breakdown" id="checkout-totals"></dl>
+    </aside>
+  </section>
+
+  <!-- ============ CONFIRMED ============ -->
+  <section id="view-done" class="view done" hidden aria-labelledby="done-title">
+    <div class="done-card">
+      <div class="done-stage" id="done-stage"></div>
+      <p class="eyebrow">Order confirmed</p>
+      <h1 id="done-title">Thank you! Your flowers are booked.</h1>
+      <p class="lede" id="done-lede"></p>
+      <dl class="receipt" id="receipt"></dl>
+      <ul class="mini-list" id="done-items"></ul>
+      <button type="button" class="btn primary" id="new-order">Build another bouquet</button>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="view-reviews" class="view two-col reviews" hidden aria-labelledby="reviews-title">
+    <div>
+      <p class="eyebrow">Customer reviews</p>
+      <h1 id="reviews-title">What people say about their bouquets.</h1>
+      <div class="reviews-summary" id="reviews-summary"></div>
+      <ul class="review-list" id="reviews-list"></ul>
+    </div>
+    <aside class="panel">
+      <h2>Leave a review</h2>
+      <form id="review-form">
+        <div class="field"><label for="rev-name">Your name</label><input id="rev-name" autocomplete="name" required></div>
+        <div class="field"><label for="rev-type">Bouquet</label><select id="rev-type"></select></div>
+        <div class="field">
+          <label>Rating</label>
+          <div class="star-picker" id="rev-stars" role="radiogroup" aria-label="Rating"></div>
+        </div>
+        <div class="field"><label for="rev-text">Your review</label><textarea id="rev-text" rows="3" maxlength="240" required placeholder="Tell us how the bouquet turned out"></textarea></div>
+        <button type="submit" class="btn primary block">Post review</button>
+      </form>
+    </aside>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="view-about" class="view two-col about" hidden aria-labelledby="about-title">
+    <div>
+      <p class="eyebrow">About us</p>
+      <h1 id="about-title">Flowers cut fresh, arranged the morning of delivery.</h1>
+      <p class="lede">Petal &amp; Twine is a small florist studio in Model Town, Jalandhar. Every bouquet is tied to order.</p>
+      <div class="about-grid">
+        <div class="about-card"><h3>Fresh, not stockpiled</h3><p>Stems arrive daily from the flower market and are cut the morning we deliver.</p></div>
+        <div class="about-card"><h3>Made to your brief</h3><p>Pick the flower, the colours and the wrap — we hand-tie it the same day.</p></div>
+        <div class="about-card"><h3>Local delivery</h3><p>Free delivery in Jalandhar over ₹1,499, with a midnight slot for last-minute plans.</p></div>
+      </div>
+    </div>
+    <aside class="panel">
+      <h2>Visit or call</h2>
+      <dl class="breakdown">
+        <div><dt>Studio</dt><dd>Model Town, Jalandhar</dd></div>
+        <div><dt>Hours</dt><dd>9 am – 8 pm, daily</dd></div>
+        <div><dt>Phone</dt><dd>+91 98xxx xxxxx</dd></div>
+      </dl>
+      <button type="button" class="btn primary block" data-nav="build">Start building</button>
+    </aside>
+  </section>
+
+  <footer class="site-foot">
+    <span>© Petal &amp; Twine, Jalandhar</span>
+    <nav class="foot-nav" aria-label="Footer">
+      <button type="button" data-nav="home">Home</button>
+      <button type="button" data-nav="build">Shop</button>
+      <button type="button" data-nav="reviews">Reviews</button>
+      <button type="button" data-nav="about">About</button>
+    </nav>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+<!--APP-END-->
+
+</body></html>
