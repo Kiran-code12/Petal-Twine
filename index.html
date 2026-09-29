@@ -1,14 +1,38 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Petal &amp; Twine</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#FFF8F3;color:#3A2A30}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Petal &amp; Twine</title></head><body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 <!--APP-START-->
 <header class="topbar">
   <a class="brand" href="#" data-nav="home" aria-label="Petal and Twine, go to home">
-    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="11" r="6" fill="var(--rose)"/><circle cx="10" cy="15" r="5" fill="var(--rose)" opacity=".7"/><circle cx="22" cy="15" r="5" fill="var(--rose)" opacity=".7"/><path d="M16 17 L16 30 M16 24 Q11 21 9 23 M16 26 Q21 23 23 25" stroke="var(--stem)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-    <span><strong>Petal &amp; Twine</strong><small>Florist · Model Town, Jalandhar</small></span>
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+      <defs>
+        <linearGradient id="lg-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6F0"/><stop offset="1" stop-color="#FCDDE7"/></linearGradient>
+        <linearGradient id="lg-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EE6F99"/><stop offset="1" stop-color="#C93F6D"/></linearGradient>
+      </defs>
+      <circle cx="24" cy="24" r="22.500" fill="url(#lg-bg)" stroke="#D9527F" stroke-width="1.500"/>
+      <g stroke="#4E8A62" stroke-width="2" stroke-linecap="round" fill="none">
+        <path d="M24 40 V25"/><path d="M24 40 Q19 33 14.500 25.500"/><path d="M24 40 Q29 33 33.500 25.500"/>
+      </g>
+      <path d="M24 34 Q15 33 12 27 Q20 26 24 34Z" fill="#6BA57C"/>
+      <path d="M24 34 Q33 33 36 27 Q28 26 24 34Z" fill="#4E8A62"/>
+      <g transform="translate(14.500 22) scale(.62)" fill="#F7A4BF">
+        <ellipse cy="-6" rx="4" ry="6"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(72)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(144)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(216)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(288)"/>
+        <circle r="2.600" fill="#C9932F"/>
+      </g>
+      <g transform="translate(33.500 22) scale(.62)" fill="#F9C0D2">
+        <ellipse cy="-6" rx="4" ry="6"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(72)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(144)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(216)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(288)"/>
+        <circle r="2.600" fill="#C9932F"/>
+      </g>
+      <g transform="translate(24 17) scale(.85)" fill="url(#lg-main)">
+        <ellipse cy="-6" rx="4" ry="6"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(72)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(144)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(216)"/><ellipse cy="-6" rx="4" ry="6" transform="rotate(288)"/>
+        <circle r="3" fill="#E7B04A"/><circle r="1.200" fill="#B7852A"/>
+      </g>
+      <path d="M24 38 c-3.500-3 -6.500-1.500 -5.500 1 c1 2 4.500 1.500 5.500-1 c1 2.500 4.500 3 5.500 1 c1-2.500 -2-4 -5.500-1Z" fill="#FFFFFF" stroke="#D9527F" stroke-width="1.200" stroke-linejoin="round"/>
+      <circle cx="24" cy="38" r="1.500" fill="#D9527F"/>
+    </svg>
+    <span class="brand-text"><strong>Petal <em>&amp;</em> Twine</strong><small>Florist · Model Town, Jalandhar</small></span>
   </a>
   <nav class="sitenav" aria-label="Site">
     <button type="button" data-nav="home">Home</button>
@@ -21,36 +45,62 @@
     <span>Cart</span><span class="badge" id="cart-count">0</span>
   </button>
 </header>
-<div class="order-progress" id="order-progress" hidden>
-  <ol class="progress" aria-label="Order progress">
-    <li><button type="button" data-nav="build">Build</button></li>
-    <li><button type="button" data-nav="cart">Cart</button></li>
-    <li><button type="button" data-nav="checkout">Checkout</button></li>
-    <li><button type="button" data-nav="done">Confirmed</button></li>
-  </ol>
-</div>
 
 <main class="wrap">
   <!-- ============ HOME ============ -->
   <section id="view-home" class="view home" aria-labelledby="home-title">
     <div class="hero">
-      <p class="eyebrow">Petal &amp; Twine · Jalandhar</p>
-      <h1 id="home-title">Bouquets built stem by stem, delivered same day.</h1>
-      <p class="lede">Choose the flowers, the colours and the wrap. We cut everything fresh the morning of delivery.</p>
-      <div class="hero-actions">
-        <button type="button" class="btn primary" data-nav="build">Start building</button>
-        <button type="button" class="btn ghost" data-nav="reviews">Read reviews</button>
+      <div class="hero-text">
+        <p class="eyebrow">Petal &amp; Twine · Jalandhar</p>
+        <h1 id="home-title">Bouquets built stem by stem, delivered same day.</h1>
+        <p class="lede">Choose the flowers, the colours and the wrap. We cut everything fresh the morning of delivery.</p>
+        <div class="hero-actions">
+          <button type="button" class="btn primary" data-nav="build">Start building</button>
+          <button type="button" class="btn ghost" data-nav="reviews">Read reviews</button>
+        </div>
       </div>
+      <div class="home-stage" id="home-stage"></div>
     </div>
-    <div class="home-stage" id="home-stage"></div>
+    <div class="trust">
+      <div class="feat"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.500" r="1.500"/><circle cx="17" cy="17.500" r="1.500"/></svg><div><strong>Same-day delivery</strong><p>Order before the evening slots fill up and we deliver across Jalandhar.</p></div></div>
+      <div class="feat"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M12 11c0-4 3-6 7-6 0 4-3 6-7 6ZM12 15c0-3-2.500-5-6-5 0 3.500 2.500 5 6 5Z"/></svg><div><strong>Cut fresh daily</strong><p>Every stem is cut the morning of delivery, never the day before.</p></div></div>
+      <div class="feat"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v13H4zM4 7l2-3h12l2 3M12 7v13"/></svg><div><strong>Free over ₹1,499</strong><p>Free delivery in Jalandhar on bigger orders, a small fee below that.</p></div></div>
+      <div class="feat"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5Z"/></svg><div><strong>A note with every bouquet</strong><p>Add a handwritten card message of up to 160 characters.</p></div></div>
+    </div>
     <div>
       <h2>Pick a flower to start with</h2>
       <div class="home-types" id="home-types"></div>
+    </div>
+    <div class="how">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps to a bouquet that is yours</h2>
+      <ol class="how-steps">
+        <li><span class="how-n">1</span><strong>Choose your flowers</strong><p>Pick a bouquet type and up to three colours. The preview updates as you go.</p></li>
+        <li><span class="how-n">2</span><strong>Wrap and personalise</strong><p>Select the wrapping paper, ribbon and add-ons, then write a card message.</p></li>
+        <li><span class="how-n">3</span><strong>We arrange and deliver</strong><p>Pick a date and time slot. We build it fresh and bring it to the door.</p></li>
+      </ol>
+    </div>
+    <div class="occasions">
+      <p class="eyebrow">Shop by occasion</p>
+      <h2>Flowers for every moment</h2>
+      <div class="occ-grid">
+        <button type="button" class="occ" data-nav="build"><span aria-hidden="true">🎂</span><strong>Birthdays</strong><small>Bright and cheerful</small></button>
+        <button type="button" class="occ" data-nav="build"><span aria-hidden="true">💍</span><strong>Anniversaries</strong><small>Roses and romance</small></button>
+        <button type="button" class="occ" data-nav="build"><span aria-hidden="true">🎓</span><strong>Congratulations</strong><small>Celebrate the win</small></button>
+        <button type="button" class="occ" data-nav="build"><span aria-hidden="true">🤍</span><strong>Get well soon</strong><small>Soft and soothing</small></button>
+      </div>
     </div>
     <div class="home-reviews">
       <h2>Loved by Jalandhar</h2>
       <div class="home-review-grid" id="home-review-grid"></div>
       <button type="button" class="link-btn" data-nav="reviews">See all reviews</button>
+    </div>
+    <div class="cta">
+      <div>
+        <h2>Ready to build yours?</h2>
+        <p>Studio in Model Town, Jalandhar. Open 9 am – 8 pm, every day.</p>
+      </div>
+      <button type="button" class="btn primary" data-nav="build">Start building</button>
     </div>
   </section>
 
@@ -270,6 +320,15 @@
     </nav>
   </footer>
 </main>
+
+<div class="order-progress" id="order-progress" hidden>
+  <ol class="progress" aria-label="Order progress">
+    <li><button type="button" data-nav="build">Build</button></li>
+    <li><button type="button" data-nav="cart">Cart</button></li>
+    <li><button type="button" data-nav="checkout">Checkout</button></li>
+    <li><button type="button" data-nav="done">Confirmed</button></li>
+  </ol>
+</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="script.js"></script>
